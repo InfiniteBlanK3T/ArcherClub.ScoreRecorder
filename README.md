@@ -16,6 +16,9 @@ Then follow this guide to get access to MySQL on Mercury - [Getting started with
 Working with phpAdmin - https://feenix-mariadb-web.swin.edu.au
 
 
+I'm working on releasing the database on Azure and we will use Postgresql as database system
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
