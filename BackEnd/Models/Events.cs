@@ -4,8 +4,8 @@ namespace BackEnd.Models;
 
 public class Events
 {
-    [Key]
-    public int EventID { get; set; }
-    [Required, StringLength(50)]
+    [Key, StringLength(50)]
     public string EventName { get; set; }
+    [Required]
+    public int EventYear { get; set; }
 }

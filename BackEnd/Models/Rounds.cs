@@ -9,12 +9,8 @@ public class Rounds
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int RoundId { get; set; }
     [Required, StringLength(50)]
-    [ForeignKey("EquivalentRounds")]
-    public string RoundEquivalent { get; set; }
-    [Required, StringLength(50)]
     [ForeignKey("Clubs")]
     public string ClubName { get; set; }
-    public EquivalentRounds? EquivalentRounds { get; set; }
 
     public Clubs? Clubs { get; set; }
 }

@@ -9,9 +9,6 @@ public class Ends
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int EndID { get; set; }
     [Required]
-    [ForeignKey("RoundScores")]
-    public int RoundScoreID { get; set; }
-    [Required]
     [ForeignKey("Ranges")]
     public int RangeID { get; set; }
     [Required]
@@ -25,6 +22,5 @@ public class Ends
     [Required]
     public int ArrowScore5 { get; set; }
     public int ArrowScore6 { get; set; }
-    public RoundScore? RoundScores { get; set; }
     public Ranges? Ranges { get; set; }
 }
