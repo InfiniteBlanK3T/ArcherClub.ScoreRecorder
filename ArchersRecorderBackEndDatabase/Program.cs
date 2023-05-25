@@ -12,6 +12,7 @@ builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
 builder.Services.AddScoped<IRoundRangeMappingRepository, RoundRangeMappingRepository>();
 builder.Services.AddScoped<IArchersRepository, ArchersRepository>();
 builder.Services.AddScoped<IRoundScoresRepository, RoundScoresRepository>();
+builder.Services.AddScoped<IEndsRepository, EndsRepository>();
 
 var app = builder.Build();
 
