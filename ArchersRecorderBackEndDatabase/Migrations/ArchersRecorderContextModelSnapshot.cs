@@ -162,6 +162,12 @@ namespace ArchersRecorderBackEndDatabase.Migrations
 
                     b.HasKey("RoundScoreId");
 
+                    b.HasIndex("ArcherId");
+
+                    b.HasIndex("EquipmentName");
+
+                    b.HasIndex("RoundId");
+
                     b.ToTable("RoundScores");
                 });
 
@@ -220,6 +226,33 @@ namespace ArchersRecorderBackEndDatabase.Migrations
                         .IsRequired();
 
                     b.Navigation("Ranges");
+
+                    b.Navigation("Rounds");
+                });
+
+            modelBuilder.Entity("ArchersRecorderBackEndDatabase.Models.RoundScores", b =>
+                {
+                    b.HasOne("ArchersRecorderBackEndDatabase.Models.Archers", "Archers")
+                        .WithMany()
+                        .HasForeignKey("ArcherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ArchersRecorderBackEndDatabase.Models.Equipments", "Equipments")
+                        .WithMany()
+                        .HasForeignKey("EquipmentName")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ArchersRecorderBackEndDatabase.Models.Rounds", "Rounds")
+                        .WithMany()
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Archers");
+
+                    b.Navigation("Equipments");
 
                     b.Navigation("Rounds");
                 });

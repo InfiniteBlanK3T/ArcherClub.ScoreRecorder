@@ -1,11 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using ArchersRecorderBackEndDatabase.Data;
+using ArchersRecorderBackEndDatabase.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ArchersRecorderContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ArcherScoreRecordContextConnection")));
 
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+builder.Services.AddScoped<IRoundRangeMappingRepository, RoundRangeMappingRepository>();
+builder.Services.AddScoped<IArchersRepository, ArchersRepository>();
+builder.Services.AddScoped<IRoundScoresRepository, RoundScoresRepository>();
 
 var app = builder.Build();
 

@@ -68,21 +68,6 @@ namespace ArchersRecorderBackEndDatabase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RoundScores",
-                columns: table => new
-                {
-                    RoundScoreId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoundId = table.Column<int>(type: "int", nullable: false),
-                    ArcherId = table.Column<int>(type: "int", nullable: false),
-                    EquipmentName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RoundScores", x => x.RoundScoreId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RoundRangeMappings",
                 columns: table => new
                 {
@@ -100,6 +85,39 @@ namespace ArchersRecorderBackEndDatabase.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RoundRangeMappings_Rounds_RoundId",
+                        column: x => x.RoundId,
+                        principalTable: "Rounds",
+                        principalColumn: "RoundId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoundScores",
+                columns: table => new
+                {
+                    RoundScoreId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoundId = table.Column<int>(type: "int", nullable: false),
+                    ArcherId = table.Column<int>(type: "int", nullable: false),
+                    EquipmentName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoundScores", x => x.RoundScoreId);
+                    table.ForeignKey(
+                        name: "FK_RoundScores_Archers_ArcherId",
+                        column: x => x.ArcherId,
+                        principalTable: "Archers",
+                        principalColumn: "ArcherId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RoundScores_Equipments_EquipmentName",
+                        column: x => x.EquipmentName,
+                        principalTable: "Equipments",
+                        principalColumn: "EquipmentName",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RoundScores_Rounds_RoundId",
                         column: x => x.RoundId,
                         principalTable: "Rounds",
                         principalColumn: "RoundId",
@@ -152,19 +170,28 @@ namespace ArchersRecorderBackEndDatabase.Migrations
                 name: "IX_RoundRangeMappings_RoundId",
                 table: "RoundRangeMappings",
                 column: "RoundId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoundScores_ArcherId",
+                table: "RoundScores",
+                column: "ArcherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoundScores_EquipmentName",
+                table: "RoundScores",
+                column: "EquipmentName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoundScores_RoundId",
+                table: "RoundScores",
+                column: "RoundId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Archers");
-
-            migrationBuilder.DropTable(
                 name: "Ends");
-
-            migrationBuilder.DropTable(
-                name: "Equipments");
 
             migrationBuilder.DropTable(
                 name: "RoundRangeMappings");
@@ -174,6 +201,12 @@ namespace ArchersRecorderBackEndDatabase.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ranges");
+
+            migrationBuilder.DropTable(
+                name: "Archers");
+
+            migrationBuilder.DropTable(
+                name: "Equipments");
 
             migrationBuilder.DropTable(
                 name: "Rounds");
