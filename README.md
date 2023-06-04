@@ -18,10 +18,10 @@ Same as repo, if there were some specific requirements to fulfil specific needs 
 
 ## Front End
 
-![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/d482d769-f900-4cc3-8a5b-e626d0a32c8d)
+![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/d482d769-f900-4cc3-8a5b-e626d0a32c8d)\
 Only after Round and Archer are selected, the Equipment option would show up, "Recurve" here is the default equipment. Then user could moving onto next phase, choosing specific range and end that they want to record.\
-![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/bf073954-b053-4d1d-8215-8409b5760f70)
-Based on the Number Of Ends here the recording will record the user scores
+![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/bf073954-b053-4d1d-8215-8409b5760f70)\
+Based on the Number Of Ends here the recording will record the users' scores.\
 ![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/59be59e1-ac43-468f-81fb-a3296b1d7df1)\
 Then finally, it will sum up all the score in each ends so that user could submit their scores.\
 ![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/954c4064-8396-442f-b612-8d8eac3cbc65)
