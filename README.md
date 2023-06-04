@@ -19,6 +19,7 @@ Same as repo, if there were some specific requirements to fulfil specific needs 
 ![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/2c752a2c-1de1-401c-8f42-5ae62af20ae1)
 
 ##Front End
+
 ![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/d482d769-f900-4cc3-8a5b-e626d0a32c8d)
 Only after Round and Archer are selected, the Equipment option would show up, "Recurve" here is the default equipment. Then user could moving onto next phase, choosing specific range and end that they want to record.\
 ![image](https://github.com/InfiniteBlanK3T/Computing-Technology-Design-Project/assets/94949422/bf073954-b053-4d1d-8215-8409b5760f70)
