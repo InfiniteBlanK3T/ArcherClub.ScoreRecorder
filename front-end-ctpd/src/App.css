@@ -1,0 +1,114 @@
+body {
+  background-color: grey;
+}
+.select-box {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: greenyellow;
+}
+
+.select-box h2 {
+  margin-bottom: 10px;
+}
+
+.select-box select {
+  margin-bottom: 20px;
+  justify-content: center;
+  padding: 10px;
+  width: 200px;
+}
+
+.score-box {
+  padding: 20px;
+  flex-direction: column;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;  /* Adjust width as needed */
+  margin: auto;  /* Center container */
+}
+
+.areaOne, .areaTwo {
+  border: 2px solid black;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.areaOne h2, .areaTwo h2 {
+  margin: 0;
+  text-align: left;
+}
+
+.centerTitle {
+  text-align: center;
+}
+
+.inputRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.inputRow input {
+  width: 10%;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: black;
+  color: greenyellow;
+  height: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin: 20px 0;
+}
+
+.gridBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+
+.button {
+  background-color: #4CAF50;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

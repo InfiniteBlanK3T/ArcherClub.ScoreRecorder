@@ -1,17 +1,17 @@
 ﻿using ArchersRecorderBackEndDatabase.Models;
 
-namespace ArchersRecorderBackEndDatabase.Repositories;;
+namespace ArchersRecorderBackEndDatabase.Repositories;
 
 public class EndsService
 {
     private readonly IEndsRepository _endsRepository;
     private readonly IRoundScoresRepository _roundScoresRepository;
-    private readonly IRepository<RoundRangeMapping> _roundRangeMappingRepository;
+    private readonly IRoundRangeMappingRepository _roundRangeMappingRepository;
     private readonly IRepository<Ranges> _rangesRepository;
 
     public EndsService(IEndsRepository endsRepository,
                        IRoundScoresRepository roundScoresRepository,
-                       IRepository<RoundRangeMapping> roundRangeMappingRepository,
+                       IRoundRangeMappingRepository roundRangeMappingRepository,
                        IRepository<Ranges> rangesRepository)
     {
         _endsRepository = endsRepository;
@@ -37,7 +37,7 @@ public class EndsService
         }
 
         // Check if the RoundScore's RoundId is associated with the RangeId in the RoundRangeMapping
-        var roundRangeMapping = await _roundRangeMappingRepository.GetByIdAsync(roundScore.RoundId, ends.RangeID);
+        var roundRangeMapping = await _roundRangeMappingRepository.GetBySpecificIdAsync(roundScore.RoundId, ends.RangeID);
         if (roundRangeMapping == null)
         {
             throw new Exception("RoundScore's RoundId is not associated with the RangeId");

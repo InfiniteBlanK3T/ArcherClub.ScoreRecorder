@@ -4,6 +4,10 @@ using ArchersRecorderBackEndDatabase.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddAuthorization();
+
 builder.Services.AddDbContext<ArchersRecorderContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ArcherScoreRecordContextConnection")));
 
@@ -14,23 +18,38 @@ builder.Services.AddScoped<IArchersRepository, ArchersRepository>();
 builder.Services.AddScoped<IRoundScoresRepository, RoundScoresRepository>();
 builder.Services.AddScoped<IEndsRepository, EndsRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowMyOrigin",
+        builder => builder.WithOrigins("http://localhost:3000") // React app url
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseCors("AllowMyOrigin");
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
+app.UseStaticFiles();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
